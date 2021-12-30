@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate')%>
+
+    <h1 class="mb-3">All Horsecamps</h1>
+    <!-- <div>
+        <a href="/horsecamps/new">Add Horsecamp</a>
+    </div> -->
+
+    <% for (let horsecamp of horsecamps){%>
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <% if (horsecamp.images.length){%>
+                        <img src="<%=horsecamp.images[0].url%>" alt="" class="img-fluid">
+                        <% } else {%>
+                            <img class="img-fluid" alt=""
+                                src="https://res.cloudinary.com/dwekn0hi2/image/upload/v1639060761/EquestrianVacations/fwhfhlug4kapyvakgsz6.jpg">
+                            <% } %>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%=horsecamp.title%>
+                        </h5>
+                        <p class="card-text">
+                            <%=horsecamp.description%>
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                <%=horsecamp.location%>
+                            </small>
+                        </p>
+                        <a href="/horsecamps/<%=horsecamp._id%>" class="btn btn-primary">View <%=horsecamp.title%></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }%>
